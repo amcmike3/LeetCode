@@ -53,5 +53,12 @@ public class TwoSum {
         }
         return ans;
     }
+    /*
+     * a map works well in this scenario because it has the indexOf and the contains methods.
+     * iterate over the given array and if the map contains two values that add up to the target value
+     * return the index of those values.
+     * otherwise add the current element in question to the map.
+     */
+    
 }
 
