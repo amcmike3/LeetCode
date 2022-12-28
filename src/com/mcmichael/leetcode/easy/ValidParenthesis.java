@@ -45,6 +45,12 @@ public class ValidParenthesis {
 	            } else if (c == '['){
 	                stack.add(c);
 	            }
+	            /*
+	             * 
+	            The purpose of the first if conditional below is to cover cases when there is no open parenthesis, 
+	      	    the stack will be empty and a false positive will be given near line 66.
+	      	    we have a placeholder to have final check against if there is a closing parenthesis when there was no open parenthesis.
+	             */
 
 	            if (stack.isEmpty() || (c == ')' && stack.peek() != '(') || (c == '}' && 
 	                    stack.peek() != '{') || (c == ']' && stack.peek() != '[')){
@@ -62,4 +68,11 @@ public class ValidParenthesis {
 	        }
 	        return ans;
 	    }
+	 /*
+	  * my solution basically iterates over the given string and for any opening parenthesis we will add it to the top of the stack.
+	  * Stack data structure works perfect for this problem because order matters. 
+	  * we only care about the most recent open parenthesis type if the incoming closing parenthesis does not match the one on
+	  * the top of the stack it is not a valid parenthesis.
+	  * 
+	  */
 }
