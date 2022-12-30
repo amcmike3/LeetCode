@@ -46,5 +46,4 @@ public class ValidAnagram {
 	        return Arrays.equals(tArr, sArr);
 		
 	}
-	
 }
