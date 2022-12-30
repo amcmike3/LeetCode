@@ -33,5 +33,18 @@ public class ValidAnagram {
 	
 	}
 	
+	public boolean isAnagramArrays(String s, String t) {
 
+		  if (s.length() != t.length()){
+	            return false;
+	        }
+	        
+	        char sArr[] = s.toCharArray();
+	        char tArr[] = t.toCharArray();
+	        Arrays.sort(tArr);
+	        Arrays.sort(sArr);
+	        return Arrays.equals(tArr, sArr);
+		
+	}
+	
 }
