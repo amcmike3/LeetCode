@@ -53,7 +53,7 @@ public class QueueWithStacks {
 	    }
 	    
 	    public void push(int x) {
-	    	if (push.empty() && ! pop.empty()) {
+	    	if (push.empty()) {
 	    		switchStacks(pop, push);
 	    	}
 	    	push.push(x);
@@ -62,7 +62,7 @@ public class QueueWithStacks {
 	    }
 	    
 	    public int pop() {
-	    	if (pop.empty() && ! push.empty()) {
+	    	if (pop.empty()) {
 	    		switchStacks(push, pop);
 	    	}
 	    	return pop.pop();
@@ -71,7 +71,7 @@ public class QueueWithStacks {
 	    
 	    public int peek() {
 	    	
-	    	if (pop.empty() && ! push.empty()) {
+	    	if (pop.empty()) {
 	    		switchStacks(push, pop);
 	    	}
 	        return pop.peek();
@@ -81,20 +81,18 @@ public class QueueWithStacks {
 	    	return push.empty() && pop.empty();
 	    }
 	    
-	    public void switchStacks(Stack<Integer> full, Stack<Integer> empty) {
+	    public void switchStacks(Stack<Integer> full, Stack<Integer> fillMe) {
 	    	while(! full.empty()) {
-	    		empty.push(full.pop());
+	    		fillMe.push(full.pop());
 	    	}
 	    	
 	    }
 	}
 
-	/**
-	 * Your MyQueue object will be instantiated and called as such:
-	 * MyQueue obj = new MyQueue();
-	 * obj.push(x);
-	 * int param_2 = obj.pop();
-	 * int param_3 = obj.peek();
-	 * boolean param_4 = obj.empty();
+	/*
+	 * this is pretty self explanatory the idea is basically any push operations will only happen on the stack we named push
+	 * similarly all pop and peek operations will happen on the stack we called pop.
+	 * the switchStacks method is where most of the magic happens we just move all of the objects into the opposite stack.
+	 * this is done so that all pop and peek operations happen on one side of the stack and push operations happen on the other.
 	 */
 }
