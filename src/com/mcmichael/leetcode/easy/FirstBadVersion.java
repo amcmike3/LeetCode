@@ -5,9 +5,9 @@ public class FirstBadVersion {
 		System.out.println(new FirstBadVersion().firstBadVersion(5));
 		System.out.println(new FirstBadVersion().firstBadVersionBinarySearch(5));
 	}
-	 private int firstBadVersionBinarySearch(int n) {
+	 private int firstBadVersionBinarySearch(int i) {
 		 int left = 0;
-		 int right = n;
+		 int right = i;
 		 
 		 while (left < right) {
 			 int mid = left + (right - left) / 2;
@@ -20,6 +20,7 @@ public class FirstBadVersion {
 		 
 		 return left;
 	}
+	 
 	 
 	public int firstBadVersion(int n) {
 	     while(!isBadVersion(n)) {
