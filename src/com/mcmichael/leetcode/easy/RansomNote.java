@@ -14,6 +14,7 @@ public class RansomNote {
 	 */
 	
 	  public boolean canConstruct(String ransomNote, String magazine) {
+	      if (magazine.length() < ransomNote.length()) return false;
 	      
 		  char[] ransArr = ransomNote.toCharArray();
 		  char[] magArr = magazine.toCharArray();
@@ -21,17 +22,20 @@ public class RansomNote {
 		  Arrays.sort(magArr);
 		  int ransIndex = 0;
 		  for (int i = 0; i < magazine.length(); i++) {
-			  if(ransIndex == ransomNote.length()) {
-				  break;
-			  }
 			  if (ransArr[ransIndex] == magArr[i] ) {
 				  ransIndex++;
 			  }
+			  if(ransIndex == ransomNote.length()) {
+				  return true;
+			  }
 		  }
-		  if (ransIndex >= ransomNote.length()) {
-			  
-			  return true;
-		  }
+		 
 		  return false;
 	    }
+	  /*
+	   * Sort both lists so we don't have to iterate over magazine characters more than once
+	   * each time a character from magazine matches move to the next letter in ransomNote String
+	   * do this until all letters are accounted for in ransomNote.
+	   * if all letters are already accounted for break early and return true
+	   */
 }
