@@ -1,6 +1,5 @@
 package com.mcmichael.leetcode.easy;
 
-import java.util.ArrayList;
 
 public class LowestCommonAncestorBinarySearchTree {
 

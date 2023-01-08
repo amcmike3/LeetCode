@@ -41,14 +41,13 @@ public class TwoSum {
 
     public int[] twoSum(int[] nums, int target) {
         int [] ans = new int[2];
-        List< Integer> map = new ArrayList<>();
-        int targetCopy = target;
+        List< Integer> list = new ArrayList<>();
         for (int i = 0; i < nums.length; i++){
-            if (map.contains(target - nums[i])) {
+            if (list.contains(target - nums[i])) {
                 ans[0] = i;
-                ans[1] = map.indexOf(target - nums[i]);
+                ans[1] = list.indexOf(target - nums[i]);
             } else {
-                map.add(nums[i]);
+                list.add(nums[i]);
             }
         }
         return ans;
