@@ -11,7 +11,7 @@ public class LongestPalindrome {
 	 */
 
 	public int longestPalindrome(String s) {
-
+		
 		int[] charTable = new int[52];
 		int palidromeLength = 0;
 		boolean oddNum = false;
