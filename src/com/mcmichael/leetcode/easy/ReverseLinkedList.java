@@ -19,19 +19,20 @@ public class ReverseLinkedList {
 			this.val = val;
 			this.next = next;
 		}
-		
 
-		  public ListNode reverseList(ListNode head) {
-		        if (head == null ) return null;
-		        if (head.next == null ) return head;
-	            ListNode temp = new ListNode(head.val);
-		        while (head.next != null) {
-		        	temp = new ListNode(head.next.val, temp);
-		        	head = head.next;
-		        }
-		        return temp;
-		    }
-	    public void swap(ListNode head, ListNode next) {
-	    	Collections.reverse(null);
-	    }
+
+	}
+
+	public ListNode reverseList(ListNode head) {
+		if (head == null)
+			return null;
+		if (head.next == null)
+			return head;
+		ListNode temp = new ListNode(head.val);
+		while (head.next != null) {
+			temp = new ListNode(head.next.val, temp);
+			head = head.next;
+		}
+		return temp;
+	}
 }
