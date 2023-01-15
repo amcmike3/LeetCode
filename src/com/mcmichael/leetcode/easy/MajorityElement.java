@@ -7,7 +7,9 @@ import java.util.Set;
 public class MajorityElement {
 
 	public int majorityElement(int[] nums) {
-
+		/*
+		 * iterate over given array and return the element that occurs most often.
+		 */
 		HashMap<Integer, Integer> map = new HashMap<>();
 
 		int maj = nums[0];
