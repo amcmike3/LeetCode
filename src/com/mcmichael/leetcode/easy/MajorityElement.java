@@ -31,7 +31,8 @@ public class MajorityElement {
 	}
 	public int majorityElement2(int[] nums) {
 		/*
-		 * 
+		 * the majority element will always occupy the center.
+		 * this assumes there is actually an element that has a majority
 		 */
 		Arrays.sort(nums);
 		return nums[nums.length/2];
