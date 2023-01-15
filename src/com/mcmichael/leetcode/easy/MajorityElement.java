@@ -6,6 +6,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 public class MajorityElement {
+	/*
+	 * Given an array nums of size n, return the majority element.
+	 * 
+	 * The majority element is the element that appears more than ⌊n / 2⌋ times. You
+	 * may assume that the majority element always exists in the array.
+	 * 
+	 * 
+	 * 
+	 * Example 1:
+	 * 
+	 * Input: nums = [3,2,3] Output: 3 Example 2:
+	 * 
+	 * Input: nums = [2,2,1,1,1,2,2] Output: 2
+	 * 
+	 */
 
 	public int majorityElement(int[] nums) {
 		/*
@@ -29,13 +44,14 @@ public class MajorityElement {
 
 		return maj;
 	}
+
 	public int majorityElement2(int[] nums) {
 		/*
-		 * the majority element will always occupy the center.
-		 * this assumes there is actually an element that has a majority
+		 * the majority element will always occupy the center. this assumes there is
+		 * actually an element that has a majority
 		 */
 		Arrays.sort(nums);
-		return nums[nums.length/2];
-		
+		return nums[nums.length / 2];
+
 	}
 }
