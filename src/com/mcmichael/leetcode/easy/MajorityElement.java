@@ -1,5 +1,6 @@
 package com.mcmichael.leetcode.easy;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,5 +28,13 @@ public class MajorityElement {
 		}
 
 		return maj;
+	}
+	public int majorityElement2(int[] nums) {
+		/*
+		 * 
+		 */
+		Arrays.sort(nums);
+		return nums[nums.length/2];
+		
 	}
 }
