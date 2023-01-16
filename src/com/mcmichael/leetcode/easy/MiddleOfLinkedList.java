@@ -29,11 +29,19 @@ public class MiddleOfLinkedList {
 
 	public ListNode middleNode(ListNode head) {
 
-		
-		
-		
-		
-		
-		return head;
+		if (head == null || head.next == null)
+			return head;
+
+		ListNode fast = head.next.next;
+		ListNode middle = head.next;
+
+		while (fast != null && fast.next != null) {
+			middle = middle.next;
+
+			fast = fast.next.next;
+
+		}
+
+		return middle;
 	}
 }
