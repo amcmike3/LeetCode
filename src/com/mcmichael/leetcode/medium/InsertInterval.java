@@ -1,5 +1,8 @@
 package com.mcmichael.leetcode.medium;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class InsertInterval {
 	/*
 	 * You are given an array of non-overlapping intervals intervals where
@@ -17,7 +20,49 @@ public class InsertInterval {
 	 * 
 	 */
 
+	
+	// unfinished still need to figure out how to reduce the size of the ans array to remove nulls;
 	public int[][] insert(int[][] intervals, int[] newInterval) {
+
+		int[] start = null;
+		int[] end = null;
+		int[][] ans = new int[intervals.length][];
+
+		for (int[] i : intervals) {
+			if (newInterval[0] >= i[0] && newInterval[0] <= i[1]) {
+				start = i;
+			}
+			if (newInterval[1] >= i[0] && newInterval[1] <= i[1]) {
+				end = i;
+			}
+
+		}
+		if (end == null && start != null) {
+			start[1] = newInterval[1];
+			ans = intervals;
+		}
+		if (end != null) {
+			boolean added = false;
+			start[1] = end[1];
+			int index = 0;
+			for (int i = 0; i < intervals.length; i++) {
+				if (intervals[i][0] >= start[0] && intervals[i][1] <= start[1]) {
+					// do nothing if any number in an interval is between the interval named start
+					if (!added) {
+						ans[index] = start;
+						index++;
+						added = true;
+					}
+				} else {
+					ans[index] = intervals[i];
+					index++;
+
+				}
+
+			}
+		}
+
+		return ans;
 
 	}
 }
