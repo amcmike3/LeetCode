@@ -9,7 +9,6 @@ public class Matrix01 {
 			for (int j = 0; j < mat[i].length; j++) {
 				if (j == 0) {
 //					 nothing left
-					
 				}
 				if (j == mat[i].length - 1) {
 //					nothing right
