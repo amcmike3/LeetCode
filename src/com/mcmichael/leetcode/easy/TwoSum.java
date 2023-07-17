@@ -59,5 +59,23 @@ public class TwoSum {
      * otherwise add the current element in question to the map.
      */
     
+    public static int[] twoSum2(int[] nums, int target) {
+    	int[] ans = new int[2];
+    	List<Integer> list = new ArrayList<>();
+    	
+    	for (int num : nums) {
+    		if (list.contains(target - num)) {
+    			ans[0]= list.size();
+    			ans[1] = list.indexOf(target - num);
+					break;
+    		} else {
+    			list.add(num);
+    		}
+    	}
+    	
+    	return ans;
+        
+    }	
+    
 }
 
