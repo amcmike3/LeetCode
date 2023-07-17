@@ -1,5 +1,8 @@
 package com.mcmichael.leetcode.easy;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 /*
@@ -75,4 +78,36 @@ public class ValidParenthesis {
 	  * the top of the stack it is not a valid parenthesis.
 	  * 
 	  */
+	 
+	 public boolean isValid2(String s) {
+			
+			
+			List<Character> opener = Arrays.asList('(', '{', '[');
+			List<Character> closer = Arrays.asList(')','}',']');
+			List<Character> stack = new ArrayList<>();
+			for (int i = 0; i < s.length(); i++) {
+				
+				if(opener.contains(s.charAt(i))) {
+					stack.add(s.charAt(i));
+				}
+				else if (closer.contains(s.charAt(i))) {
+					if(stack.isEmpty()) {
+						return false;
+					} else if(s.charAt(i) == ')' && stack.get(stack.size()-1) == '(') {
+						stack.remove(stack.size() - 1);
+					} else if(s.charAt(i) == '}' && stack.get(stack.size()-1) == '{') {
+						stack.remove(stack.size() - 1);
+					} else if(s.charAt(i) == ']' && stack.get(stack.size()-1) == '[') {
+						stack.remove(stack.size() - 1);
+					} else {
+						return false;
+					}
+					
+				}
+			}
+			if (stack.isEmpty()) {
+				return true;
+			}
+			return false;
+	    }
 }
