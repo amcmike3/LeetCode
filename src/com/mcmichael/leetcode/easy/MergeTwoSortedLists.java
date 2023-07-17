@@ -1,4 +1,7 @@
 package com.mcmichael.leetcode.easy;
+
+import com.mcmichael.leetcode.easy.MergeTwoSortedLists.ListNode;
+
 /*
  * You are given the heads of two sorted linked lists list1 and list2.
 
@@ -64,6 +67,35 @@ public class MergeTwoSortedLists {
 	 	 * 		(Don't ask me why.. but I think the loop should catch that since list2 is still not null)
 	 	 * 		(please someone explain it to me... )
 	 	 */
+	 
+	 public ListNode mergeTwoLists2(ListNode list1, ListNode list2) {
+			if (list1 == null){
+				return list2;
+			}
+			if (list2 == null){
+				return list1;
+			}
+			ListNode ans = new ListNode();
+			ListNode curr = ans;
+			while (list1 != null && list2 != null) {
+				if (list1.val < list2.val) {
+					curr.next = list1;
+					curr = curr.next;
+					list1 = list1.next;
+				} else {
+					curr.next = list2;
+					curr = curr.next;
+					list2 = list2.next;
+				}
+			}
+			if (list1 == null) {
+				curr.next = list2;
+			}
+			if (list2 == null) {
+				curr.next = list1;
+			}
+			return ans;
+		}
 	
 	
 	
