@@ -27,22 +27,13 @@ public class ConvertSortedArrayToBinarySearchTree {
 		    }
 		    public TreeNode arrToBSTHelper(TreeNode root, int[] nums, int start, int end) {
 		    	
-		    	if (start >= end) {
-		    		return null;
-		    	}
-		    	int leftMid = (start + end) / 2;
-		    	int rightMid = start + (end - start) / 2;
+		    	int mid = start + (end - start) / 2;
 		    	
-		    	if (leftMid >= 0) {
-		    		root.left = arrToBSTHelper(new TreeNode(nums[leftMid]), nums, leftMid - 1, end);
-		    	}
-		    	if (rightMid < nums.length) {
-			    	root.right = arrToBSTHelper(new TreeNode(nums[rightMid]), nums, start, rightMid + 1);	
-		    	}
+		    	root.right = arrToBSTHelper(new TreeNode(nums[mid / 2]), nums, mid, end);
+		    	root.left = arrToBSTHelper(new TreeNode(nums[mid + (mid / 2)]), nums, start, mid);
+		    	return null;
 		    	
-		    	return root;
 		    }
-		    
 			    
 
 }
