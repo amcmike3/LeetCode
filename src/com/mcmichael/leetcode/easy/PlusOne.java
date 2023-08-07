@@ -9,7 +9,7 @@ public class PlusOne {
         
 		for (int i = digits.length - 1; i >= 0; i--) {
 			digits[i] += temp;
-			if (digits[i] % 10 > 0) {
+			if (digits[i] / 10 > 0) {
 				temp = digits[i] / 10;
 				digits[i] = digits[i] % 10;
 				if (i == 0) {
