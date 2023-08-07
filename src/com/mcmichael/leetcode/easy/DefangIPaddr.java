@@ -4,4 +4,7 @@ class DefangIPaddr {
         address = address.replaceAll("\\.", "[.]");
         return address;
     }
+    public String defangIPaddr2(String address) {
+        return address.replace(".", "[.]");
+    }
 }
