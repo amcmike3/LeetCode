@@ -2,6 +2,36 @@ package com.mcmichael.leetcode.easy;
 
 public class BestTimetoBuyandSellStock {
 
+    public int maxProfit(int[] prices) {
+        int ans = 0;
+        int minSoFar = Integer.MAX_VALUE;
+    	
+        for (int i = 0; i< prices.length; i++) {
+        	if (prices[i] < minSoFar) {
+        		minSoFar = prices[i];
+        	}
+        	
+        	if (prices[i] - minSoFar > ans) {
+        		ans = prices[i] - minSoFar;
+        	}
+        	
+        }
+        
+    	return ans;
+    }
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/*
 	 * You are given an array prices where prices[i] is the price of a given stock
 	 * on the ith day.
@@ -12,7 +42,7 @@ public class BestTimetoBuyandSellStock {
 	 * Return the maximum profit you can achieve from this transaction. If you
 	 * cannot achieve any profit, return 0.
 	 */
-	public int maxProfit(int[] prices) {
+	public int maxProfit2(int[] prices) {
 		int profit = 0;
 		int minSoFar = prices[0];
 
